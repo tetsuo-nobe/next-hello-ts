@@ -1,13 +1,16 @@
 "use client"
 import {useState} from "react"
 
-const MainPage = () => {  
+const MainPage = () => {
+  // 入力した名前と表示用のメッセージを State として管理  
   const [name, setName] = useState("")   
   const [message, setMessage] = useState("")
   
+  // Submit ボタン選択時に実行する関数
   const handleSubmit = async (e) => {    
     e.preventDefault()
-    try {      
+    try {
+      // API の呼出し      
       const response = await fetch("/api/hello", {        
         method: "POST",        
         headers: {          
@@ -17,8 +20,11 @@ const MainPage = () => {
         body: JSON.stringify({          
           yourname : name        
         })       
-      })    
+      })
+      // API の実行結果の取得    
       const jsonData = await response.json()
+
+      // 実行結果の表示
       setMessage(jsonData.message)
     } catch {          
       alert("handleSubmit Error")
