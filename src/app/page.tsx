@@ -1,13 +1,15 @@
 "use client"
-import {useState} from "react"
+import React, {useState} from "react"
+import {NextPage} from "next"
 
-const MainPage = () => {
+
+const MainPage: NextPage = () => {
   // 入力した名前と表示用のメッセージを State として管理  
   const [name, setName] = useState("")   
   const [message, setMessage] = useState("")
   
   // Submit ボタン選択時に実行する関数
-  const handleSubmit = async (e) => {    
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {    
     e.preventDefault()
     try {
       // API の呼出し      
