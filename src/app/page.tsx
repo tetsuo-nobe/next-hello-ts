@@ -1,9 +1,7 @@
 "use client"
 import React, {useState} from "react"
-import {NextPage} from "next"
 
-
-const MainPage: NextPage = () => {
+const MainPage = () => {
   // 入力した名前と表示用のメッセージを State として管理  
   const [name, setName] = useState("")   
   const [message, setMessage] = useState("")
